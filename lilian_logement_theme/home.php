@@ -1,14 +1,41 @@
 <?php
   get_header();
+?>
 
-  if (have_posts()) :
-    while (have_posts()) :
-      the_post(); ?>
-      <h1><?php the_title(); ?></h1>
-      <p><?php the_content(); ?></p>
-      <i><?php the_date(); ?></i>
-    <?php
-    endwhile;
-  endif;
+<div class="Content_page">
+  <h1>Accueil</h1>
+
+<h2>Nouveaux logement diponible :</h2>
+
+<div class="list_logement_item">
+
+  <?php
+    $query = new WP_Query( array( 'post_type' => 'Logement', 'posts_per_page' => '6' ) );
+      if ($query->have_posts()) :
+        while ( $query->have_posts() ) :
+          $query->the_post();
+          ?>
+
+        <div class="Logement_item">
+          <a href="<?php the_permalink() ?>">
+            <h4><?php the_title() ?></h4>
+          </a>
+          <a href="<?php the_permalink() ?>">
+            <?php the_post_thumbnail('thumbnail'); ?>
+          </a>
+          <p> <?php the_field("prix") ?> €   <?php the_field("surface") ?> m²</p>
+        </div>
+
+      <?php
+        endwhile;
+    endif;
+    ?>
+
+</div>
+
+
+</div>
+
+<?php
   get_footer();
  ?>
