@@ -10,7 +10,7 @@
           <img src="http://via.placeholder.com/800x200" alt="bandeau_site">
         </div>
         <nav class="navigation">
-          <a href="" class="navigation_link">Accueil</a>
+          <a href="/" class="navigation_link">Accueil</a>
     			<?php
           $query = new WP_Query( array( 'post_type' => 'Ville'));
             if ($query->have_posts()) :

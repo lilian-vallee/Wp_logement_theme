@@ -17,13 +17,15 @@
           ?>
 
         <div class="Logement_item">
-          <a href="<?php the_permalink() ?>">
-            <h4><?php the_title() ?></h4>
-          </a>
-          <a href="<?php the_permalink() ?>">
+                    <a href="<?php the_permalink() ?>">
             <?php the_post_thumbnail('thumbnail'); ?>
           </a>
-          <p> <?php the_field("prix") ?> €   <?php the_field("surface") ?> m²</p>
+          <p>
+            <a href="<?php the_permalink() ?>">
+              <h4><?php the_title() ?></h4>
+            </a>
+            <?php the_field("prix") ?> € | <?php the_field("surface") ?> m²
+          </p>
         </div>
 
       <?php
